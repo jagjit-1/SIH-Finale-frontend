@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { SafeAreaAndroid } from './AndroidSafeArea';
 export default function App() {
   return (
     <View styles = {SafeAreaAndroid.SafeArea}>
