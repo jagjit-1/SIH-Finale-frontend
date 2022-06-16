@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View styles = {SafeAreaAndroid.SafeArea}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Front End Part</Text>
       <StatusBar style="auto" />
     </View>
   );
