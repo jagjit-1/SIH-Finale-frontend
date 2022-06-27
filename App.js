@@ -21,7 +21,6 @@ export default function App() {
       <Tab.Navigator initialRouteName='Home' screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           if (route.name === "Home") {
- 
             return <Ionicons name="ios-home" size={size} color={color} />;
           } else if (route.name === "About") {
             return <FontAwesome name="question-circle-o" size={size} color={color} />
