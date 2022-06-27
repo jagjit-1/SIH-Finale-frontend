@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <LinearGradient
       colors={['rgba(255,173,3,1)', 'rgba(235,243,220,1)', 'rgba(146,182,41,1)', 'rgba(145,181,39,1)']}
@@ -22,7 +22,7 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity style={styles.homescreen__button} activeOpacity={0.4}>
+            <TouchableOpacity style={styles.homescreen__button} activeOpacity={0.4} onPress={()=>navigation.navigate("register")} >
               <Image style={styles.homescreen__image} source={require("../images/register_now.jpg")} />
               <Text style={styles.homescreen__text}>
                 New Registration
