@@ -15,26 +15,13 @@ import { AntDesign } from '@expo/vector-icons';
 export default function App() {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
-  let text = "Watign";
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName='Home' screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          if (route.name === "Home") {
-            return <Ionicons name="ios-home" size={size} color={color} />;
-          } else if (route.name === "About") {
-            return <FontAwesome name="question-circle-o" size={size} color={color} />
-          } else if (route.name === "Profile") {
-            return <AntDesign name="profile" size={size} color={color} />
-          }
-        },
-        tabBarActiveTintColor: '#FF9933',
-        tabBarInactiveTintColor: 'gray',
-      })}>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="About" component={AboutScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator>
+      <Stack.Navigator initialRouteName='Home' >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
