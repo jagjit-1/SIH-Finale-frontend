@@ -1,92 +1,80 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, Image, Pressable } from 'react-native'
+import React, { useLayoutEffect } from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+// import attendance from ''
 
-
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   return (
-    <LinearGradient
-      colors={['rgba(255,173,3,1)', 'rgba(235,243,220,1)', 'rgba(146,182,41,1)', 'rgba(145,181,39,1)']}
-      end={{ x: 0.5, y: 1.4 }}
-    >
-      <View style={{ height: '100%' }}  >
-        <View style={styles.homescreen} >
-          <View>
-            <TouchableOpacity style={styles.homescreen__button} activeOpacity={0.4}>
-              <Image style={styles.homescreen__image} source={require("../images/mark_attendance.jpg")} />
-              <Text style={styles.homescreen__text}>
-                Mark Your Attendance
-              </Text>
-              <FontAwesome name="arrow-circle-right" size={24} color="black" style = {{alignSelf:'center'}} />
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity style={styles.homescreen__button} activeOpacity={0.4} onPress={()=>navigation.navigate("register")} >
-              <Image style={styles.homescreen__image} source={require("../images/register_now.jpg")} />
-              <Text style={styles.homescreen__text}>
-                New Registration
-              </Text>
-              <FontAwesome name="arrow-circle-right" size={24} color="black" style={{alignSelf:"center"}}/>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style = {{marginBottom:20}} >
-          <TouchableOpacity style={styles.homescreen__contactbutton} activeOpacity={0.4}>
-            <Text style={styles.homescreen__text}>
-              Contact Admin
-            </Text>
+
+    <View style={{ height: '100%' }}  >
+      <View >
+        <TouchableOpacity activeOpacity={0.5} style={{ elevation: 10, shadowColor: '#52006A', backgroundColor: 'white', padding: 2, paddingBottom: 6, margin: 3, width: 320, alignSelf: 'center', marginTop: 25, borderRadius: 25 }}>
+          <Image style={{ width: 240, height: 200, display: 'flex', alignSelf: 'center' }} source={require("../images/attendance.jpg")} />
+          <Text style={{ fontWeight: '800', fontSize: 25, display: 'flex', textAlign: 'center', marginBottom: 10 }}>
+            Mark Your Attendance
+          </Text>
+          <FontAwesome5 name="user-check" size={40} color="#5379f6" style={{ alignSelf: 'center' }} />
+        </TouchableOpacity>
+
+        <TouchableOpacity activeOpacity={0.5} style={{ elevation: 10, shadowColor: '#52006A', backgroundColor: 'white', padding: 2, paddingBottom: 6, margin: 3, width: 320, alignSelf: 'center', marginTop: 25, borderRadius: 25 }}>
+          <Image style={{ width: 240, height: 200, display: 'flex', alignSelf: 'center' }} source={require("../images/register.jpg")} />
+          <Text style={{ fontWeight: '800', fontSize: 25, display: 'flex', textAlign: 'center', marginBottom: 10 }}>
+            New Registration
+          </Text>
+          <FontAwesome5 name="user-plus" size={40} color="#5379f6" style={{ alignSelf: 'center' }} />
+        </TouchableOpacity>
+        <View style = {{display:'flex', flexDirection:'row', height:50, alignSelf:'center', marginTop:25, width:320, justifyContent:'space-between'}}>
+          <TouchableOpacity activeOpacity={0.5} style = {{elevation:10, shadowColor:"#52006A", backgroundColor:'#5379f6', padding:2, paddingBottom:6, margin:3, width:140, borderRadius:25}}>
+            <Text style = {{textAlign:'center', textAlignVertical:'center', height:'100%', fontWeight:"700", fontSize:18}}>About Us</Text>
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.5} style = {{elevation:10, shadowColor:"#52006A", backgroundColor:'#5379f6', padding:2, paddingBottom:6, margin:3, width:160, borderRadius:25}}>
+            <Text style = {{textAlign:'center', textAlignVertical:'center', height:'100%', fontWeight:"700", fontSize:18}}>Contact Admin</Text>
           </TouchableOpacity>
         </View>
-        <View>
-          <TouchableOpacity style={styles.homescreen__contactbutton} activeOpacity={0.4}>
-            <Text style={styles.homescreen__text}>
-              About us 
-            </Text>
-          </TouchableOpacity>
-        </View>
+
       </View>
-    </LinearGradient>
+      {/* <View style={{ marginBottom: 20 }} >
+        <TouchableOpacity style={styles.homescreen__contactbutton} activeOpacity={0.4}>
+          <Text style={styles.homescreen__text}>
+            Contact Admin
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity style={styles.homescreen__contactbutton} activeOpacity={0.4}>
+          <Text style={styles.homescreen__text}>
+            About us
+          </Text>
+        </TouchableOpacity>
+      </View> */}
+    </View>
+
 
   )
 }
 export default HomeScreen
 
 const styles = StyleSheet.create({
-  homescreen: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 100,
-    marginBottom: 25
-  },
-  homescreen__button: {
-    elevation: 25,
-    shadowColor: "#52006A",
-    backgroundColor: '#80d1ff',
-    borderRadius: 10,
-    padding: 15,
-  },
-  homescreen__image: {
-    height: 150,
-    width: 150,
-    borderRadius: 15,
-    marginBottom: 20
-  },
-  homescreen__text: {
-    marginBottom: 10,
-    textAlign:'center',
-    fontSize:15,
-    fontWeight:'bold',
-  },
-  homescreen__contactbutton: {
-    elevation: 25,
-    shadowColor: "#52006A",
-    backgroundColor: '#80d1ff',
-    borderRadius: 10,
-    padding: 15,
-    display:'flex',
-    width:385,
-    alignSelf:'center',
-  }
+
 })
+
+
+  // <LinearGradient
+  // colors={['rgba(255,38,32,1)', 'rgba(255,222,119,1)', 'rgba(173,239,165,1)', 'rgba(65,133,64,1)']}
+  // end={{ x: 1.9, y: 0.6 }}
+  // >
+  // </LinearGradient>
+
+
+  // < View >
+  // <TouchableOpacity style={styles.homescreen__button} activeOpacity={0.4} onPress={() => navigation.navigate("register")} >
+  //   {/* <Image style={styles.homescreen__image} source={require("../images/register_now.jpg")} /> */}
+  //   <Text style={styles.homescreen__text}>
+  //     New Registration
+  //   </Text>
+  //   <Ionicons name="md-person-add" size={40} color="green" style={{ alignSelf: 'center' }} />
+  // </TouchableOpacity>
+  //         </ >
