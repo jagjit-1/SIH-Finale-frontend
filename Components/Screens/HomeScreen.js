@@ -8,8 +8,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 const HomeScreen = ({ navigation }) => {
   return (
-
-    <View style={{ height: '100%', display:'flex', flexDirection:'column' }}  >
+    <View style={{ height: '100%', display:'flex', flexDirection:'column', overflow:'scroll' }}  >
       <View style = {{flex:0.8}}>
         <TouchableOpacity activeOpacity={0.5} style={styles.homscreen__buttons}>
           <Image style={styles.homescreen__image} source={require("../images/attendance.jpg")} />
