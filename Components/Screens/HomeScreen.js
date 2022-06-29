@@ -9,47 +9,34 @@ import { FontAwesome5 } from '@expo/vector-icons';
 const HomeScreen = ({ navigation }) => {
   return (
 
-    <View style={{ height: '100%' }}  >
-      <View >
-        <TouchableOpacity activeOpacity={0.5} style={{ elevation: 10, shadowColor: '#52006A', backgroundColor: 'white', padding: 2, paddingBottom: 6, margin: 3, width: 320, alignSelf: 'center', marginTop: 25, borderRadius: 25 }}>
-          <Image style={{ width: 240, height: 200, display: 'flex', alignSelf: 'center' }} source={require("../images/attendance.jpg")} />
-          <Text style={{ fontWeight: '800', fontSize: 25, display: 'flex', textAlign: 'center', marginBottom: 10 }}>
+    <View style={{ height: '100%', display:'flex', flexDirection:'column' }}  >
+      <View style = {{flex:0.8}}>
+        <TouchableOpacity activeOpacity={0.5} style={styles.homscreen__buttons}>
+          <Image style={styles.homescreen__image} source={require("../images/attendance.jpg")} />
+          <Text style={styles.homescreen__text}>
             Mark Your Attendance
           </Text>
           <FontAwesome5 name="user-check" size={40} color="#5379f6" style={{ alignSelf: 'center' }} />
         </TouchableOpacity>
 
-        <TouchableOpacity activeOpacity={0.5} style={{ elevation: 10, shadowColor: '#52006A', backgroundColor: 'white', padding: 2, paddingBottom: 6, margin: 3, width: 320, alignSelf: 'center', marginTop: 25, borderRadius: 25 }}>
-          <Image style={{ width: 240, height: 200, display: 'flex', alignSelf: 'center' }} source={require("../images/register.jpg")} />
-          <Text style={{ fontWeight: '800', fontSize: 25, display: 'flex', textAlign: 'center', marginBottom: 10 }}>
+        <TouchableOpacity activeOpacity={0.5} style={styles.homscreen__buttons}>
+          <Image style={styles.homescreen__image} source={require("../images/register.jpg")} />
+          <Text style={styles.homescreen__text}>
             New Registration
           </Text>
           <FontAwesome5 name="user-plus" size={40} color="#5379f6" style={{ alignSelf: 'center' }} />
         </TouchableOpacity>
-        <View style = {{display:'flex', flexDirection:'row', height:50, alignSelf:'center', marginTop:25, width:320, justifyContent:'space-between'}}>
-          <TouchableOpacity activeOpacity={0.5} style = {{elevation:10, shadowColor:"#52006A", backgroundColor:'#5379f6', padding:2, paddingBottom:6, margin:3, width:140, borderRadius:25}}>
-            <Text style = {{textAlign:'center', textAlignVertical:'center', height:'100%', fontWeight:"700", fontSize:18}}>About Us</Text>
-          </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.5} style = {{elevation:10, shadowColor:"#52006A", backgroundColor:'#5379f6', padding:2, paddingBottom:6, margin:3, width:160, borderRadius:25}}>
-            <Text style = {{textAlign:'center', textAlignVertical:'center', height:'100%', fontWeight:"700", fontSize:18}}>Contact Admin</Text>
-          </TouchableOpacity>
-        </View>
+      </View>
+      <View style={styles.homescreen__bottombtn}>
+        <TouchableOpacity activeOpacity={0.5} style={styles.bottom_btns}>
+          <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontWeight: "700", fontSize: 18 }}>About Us</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.5} style={styles.bottom_btns}>
+          <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontWeight: "700", fontSize: 18 }}>Contact Admin</Text>
+        </TouchableOpacity>
+      </View>
 
-      </View>
-      {/* <View style={{ marginBottom: 20 }} >
-        <TouchableOpacity style={styles.homescreen__contactbutton} activeOpacity={0.4}>
-          <Text style={styles.homescreen__text}>
-            Contact Admin
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-        <TouchableOpacity style={styles.homescreen__contactbutton} activeOpacity={0.4}>
-          <Text style={styles.homescreen__text}>
-            About us
-          </Text>
-        </TouchableOpacity>
-      </View> */}
+
     </View>
 
 
@@ -58,7 +45,51 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
-
+  homscreen__buttons: {
+    elevation: 10,
+    shadowColor: '#52006A',
+    backgroundColor: 'white',
+    padding: 2,
+    paddingBottom: 6,
+    margin: 3,
+    width: 320,
+    alignSelf: 'center',
+    marginTop: 25,
+    borderRadius: 25
+  },
+  homescreen__image: {
+    width: 240,
+    height: 200,
+    display: 'flex',
+    alignSelf: 'center'
+  },
+  homescreen__text: {
+    fontWeight: '800',
+    fontSize: 25,
+    display: 'flex',
+    textAlign: 'center',
+    marginBottom: 10
+  },
+  homescreen__bottombtn: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: 50,
+    alignSelf: 'center',
+    marginTop: 100,
+    width: 320,
+    justifyContent: 'space-between',
+    flex:0.1
+  },
+  bottom_btns: {
+    elevation: 10,
+    shadowColor: "#52006A",
+    backgroundColor: '#5379f6',
+    padding: 20,
+    paddingBottom: 25,
+    margin: 3,
+    borderRadius: 25,
+    width: 'auto'
+  }
 })
 
 
