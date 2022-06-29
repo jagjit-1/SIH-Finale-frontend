@@ -12,19 +12,21 @@ import ProfileScreen from './Components/Screens/ProfileScreen';
 import { AntDesign } from '@expo/vector-icons';
 import RegisterScreen from './Components/Screens/RegisterScreen';
 import { LinearGradient } from 'expo-linear-gradient';
+import PhotoCaptureScreen from './Components/Screens/PhotoCaptureScreen';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
   return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home' >
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="About" component={AboutScreen} />
-          <Stack.Screen name="Profile" component={ProfileScreen} />
-          <Stack.Screen name="register" component={RegisterScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home' >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="register" component={RegisterScreen} />
+        <Stack.Screen name="photocapture" component={PhotoCaptureScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
