@@ -24,7 +24,7 @@ const RegisterScreen = ({ navigation }) => {
         <ScrollView style={{ display: 'flex', flexDirection: "column" }} showsVerticalScrollIndicator={false}>
           <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', elevation: 10, shadowColor: '#52006A', backgroundColor: 'white', marginBottom: 20, padding: 12, borderRadius: 20 }}>
             <Image
-              style={{ width: width - 100, height: 200 }}
+              style={{ width: width - 70, height: 200 }}
               source={require('../images/signup.webp')}
 
             />
