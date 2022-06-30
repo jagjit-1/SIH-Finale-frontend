@@ -17,15 +17,14 @@ const RegisterScreen = ({ navigation }) => {
     })
   }, [navigation])
   const headerHeight = useHeaderHeight();
-  const { width, height } = Dimensions.get('window'); 
 
+  const { width, height } = Dimensions.get('window');
   return (
-    <ScrollView>
-      <KeyboardAvoidingView style={{ padding: 35, width: '100%', height: height-headerHeight, display: 'flex', flexDirection: 'column', justifyContent: 'center', flex:1, marginTop:10 }}>
-        <View style={{ display: 'flex', flexDirection: "column" }}>
+      <KeyboardAvoidingView style={{ padding: 20, width: '100%', height: height - headerHeight, display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1}} >
+        <ScrollView style={{ display: 'flex', flexDirection: "column" }} showsVerticalScrollIndicator={false}>
           <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', elevation: 10, shadowColor: '#52006A', backgroundColor: 'white', marginBottom: 20, padding: 12, borderRadius: 20 }}>
             <Image
-              style={{ width: 300, height: 200 }}
+              style={{ width: width - 100, height: 200 }}
               source={require('../images/signup.webp')}
 
             />
@@ -72,19 +71,16 @@ const RegisterScreen = ({ navigation }) => {
           </View>
 
 
-          {/* Image upload */}
+          <View style={{ marginBottom: 15 }}>
+            <Button raised color="#5379f6" type="outline" title="Upload your image" TouchableComponent={TouchableNativeFeedback} onPress={() => console.log("Upload Submit button clicked")} />
+          </View>
           <View>
-            <View style={{ marginBottom: 15 }}>
-              <Button raised color="#5379f6" type="outline" title="Upload your image" TouchableComponent={TouchableNativeFeedback} onPress={() => console.log("Upload Submit button clicked")} />
-            </View>
-            <View>
-              <Button raised color="#5379f6" type="solid" title="Continue" TouchableComponent={TouchableNativeFeedback} onPress={() => console.log("Register Submit button clicked")} />
-            </View>
+            <Button raised color="#5379f6" type="solid" title="Continue" TouchableComponent={TouchableNativeFeedback} onPress={() => console.log("Register Submit button clicked")} />
           </View>
 
-        </View>
+        </ScrollView>
       </KeyboardAvoidingView>
-    </ScrollView>
+    
 
   )
 }

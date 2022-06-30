@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image, StatusBar, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image, StatusBar, Dimensions, ScrollView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -7,8 +7,11 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { Button } from '@rneui/base';
 
-
-
+const { width, height } = Dimensions.get('window');
+const image__height = (height*(0.35));
+// const image__width = width/20; 
+const size = (0.1*width);
+const fontsize = width/20;  
 const HomeScreen = ({ navigation }) => {
 
   useLayoutEffect(() => {
@@ -22,10 +25,10 @@ const HomeScreen = ({ navigation }) => {
     })
   }, [navigation])
   const headerHeight = useHeaderHeight();
-  const { width, height } = Dimensions.get('window');
 
+  console.log(height, width);
   return (
-    <View style={{ height: height - headerHeight, display: 'flex', flexDirection: 'column', overflow: 'scroll' }}>
+    <ScrollView style={{ height: height - headerHeight, display: 'flex', flexDirection: 'column', overflow: 'scroll' }} showsVerticalScrollIndicator={false}>
 
       <View >
         <TouchableOpacity activeOpacity={0.5} style={styles.homscreen__buttons}>
@@ -33,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.homescreen__text}>
             Mark Your Attendance
           </Text>
-          <FontAwesome5 name="user-check" size={40} color="#5379f6" style={{ alignSelf: 'center' }} />
+          <FontAwesome5 name="user-check" size={size} color="#5379f6" style={{ alignSelf: 'center' }} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("register")} activeOpacity={0.5} style={styles.homscreen__buttons}>
@@ -41,14 +44,14 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.homescreen__text}>
             New Registration
           </Text>
-          <FontAwesome5 name="user-plus" size={40} color="#5379f6" style={{ alignSelf: 'center' }} />
+          <FontAwesome5 name="user-plus" size={size} color="#5379f6" style={{ alignSelf: 'center' }} />
         </TouchableOpacity>
       </View>
       <View style={styles.homescreen__bottombtn}>
-        <Button color="#5379f6" title="About us"  type="outline" onPress={()=>console.log("About us pressed")} raised containerStyle={{width:125}}/>
-        <Button color="#5379f6" title="Contact Admin" onPress={()=>console.log("Contact admin pressed")} raised containerStyle={{width:160}}/>
+        <Button color="#5379f6" title="About us"  type="outline" onPress={()=>console.log("About us pressed")} raised containerStyle = {{width:140}}/>
+        <Button color="#5379f6" title="Contact Admin" onPress={()=>console.log("Contact admin pressed")} raised containerStyle={{width:160}} />
       </View>
-    </View>
+    </ScrollView>
   )
 }
 export default HomeScreen
@@ -61,10 +64,10 @@ const styles = StyleSheet.create({
     padding: 2,
     paddingBottom: 6,
     margin: 3,
-    width: 320,
+    width: width-100,
     alignSelf: 'center',
     marginTop: 25,
-    borderRadius: 25
+    borderRadius: 25,
   },
   homescreen__image: {
     width: 240,
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
   },
   homescreen__text: {
     fontWeight: '800',
-    fontSize: 25,
+    fontSize: fontsize,
     display: 'flex',
     textAlign: 'center',
     marginBottom: 10
@@ -84,8 +87,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     marginTop: 30,
-    width: 320,
+    width: width,
     justifyContent: 'space-evenly',
+    marginBottom:15
   },
   // bottom_btns: {
   //   elevation: 10,
