@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { SafeAreaAndroid } from './Components/AndroidSafeView';
 import HomeScreen from './Components/Screens/HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,15 +18,18 @@ export default function App() {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home' >
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-        <Stack.Screen name="register" component={RegisterScreen} />
-        <Stack.Screen name="photocapture" component={PhotoCaptureScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+    {/* <StatusBar barStyle="light-content" backgroundColor="#5379f6"/> */}
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Home' >
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="About" component={AboutScreen} />
+          <Stack.Screen name="Profile" component={ProfileScreen} />
+          <Stack.Screen name="register" component={RegisterScreen} />
+          <Stack.Screen name="photocapture" component={PhotoCaptureScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
