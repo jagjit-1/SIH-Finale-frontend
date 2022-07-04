@@ -19,7 +19,7 @@ export default function App() {
   const Tab = createBottomTabNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home' >
+      <Stack.Navigator initialRouteName='photocapture' >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="About" component={AboutScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
