@@ -6,106 +6,111 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { Button } from '@rneui/base';
+import { moderateScale, ScaledSheet } from 'react-native-size-matters';
 
-const { width, height } = Dimensions.get('window');
-const image__height = (height*(0.35));
-// const image__width = width/20; 
-const size = (0.1*width);
-const fontsize = width/20;  
 const HomeScreen = ({ navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
       title: 'Attendance Tracker',
-      headerStyle: { backgroundColor: '#5379f6' },
+      headerStyle: { backgroundColor: 'white' },
+
       headerTitleStyle: { color: "white" },
       headerTintColor: "white",
       headerTitleAlign: 'center',
-
+      headerShadowVisible: false
     })
   }, [navigation])
-  const headerHeight = useHeaderHeight();
 
-  console.log(height, width);
+
   return (
-    <ScrollView style={{ height: height - headerHeight, display: 'flex', flexDirection: 'column', overflow: 'scroll' }} showsVerticalScrollIndicator={false}>
-
-      <View >
-        <TouchableOpacity activeOpacity={0.5} style={styles.homscreen__buttons}>
+    <View style={styles.homescreen__header} showsVerticalScrollIndicator={false}>
+      <View>
+        <View style={styles.header}>
+          <Text style={styles.header__text} >
+            OfficeSarthi
+          </Text>
+          <Text style={styles.header__descText}>
+            Your smart attendance tracker
+          </Text>
+        </View>
+        <View style = {[styles.homescreen__image,styles.image__view]}>
           <Image style={styles.homescreen__image} source={require("../images/attendance.jpg")} />
-          <Text style={styles.homescreen__text}>
-            Mark Your Attendance
-          </Text>
-          <FontAwesome5 name="user-check" size={size} color="#5379f6" style={{ alignSelf: 'center' }} />
-        </TouchableOpacity>
+        </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate("register")} activeOpacity={0.5} style={styles.homscreen__buttons}>
-          <Image style={styles.homescreen__image} source={require("../images/register.jpg")} />
-          <Text style={styles.homescreen__text}>
-            New Registration
+
+        <View>
+          <Text style={styles.display__text}>
+            Mark Attendance
           </Text>
-          <FontAwesome5 name="user-plus" size={size} color="#5379f6" style={{ alignSelf: 'center' }} />
-        </TouchableOpacity>
+          <Text style={{ textAlign: 'center' }}>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, corrupti?
+          </Text>
+        </View>
+        <View style={styles.homescreen__bottombtn}>
+          <Button color="#5379f6" title="Login" type="outline" onPress={() => console.log("About us pressed")} raised containerStyle={{ width: 140 }} />
+          <Button color="#5379f6" title="Mark Attendance" onPress={() => navigation.navigate("mapscreen")} raised containerStyle={{ width: 160 }} />
+        </View>
       </View>
-      <View style={styles.homescreen__bottombtn}>
-        <Button color="#5379f6" title="About us"  type="outline" onPress={()=>console.log("About us pressed")} raised containerStyle = {{width:140}}/>
-        <Button color="#5379f6" title="Contact Admin" onPress={()=>console.log("Contact admin pressed")} raised containerStyle={{width:160}} />
-      </View>
-    </ScrollView>
+
+    </View>
   )
 }
 export default HomeScreen
 
-const styles = StyleSheet.create({
-  homscreen__buttons: {
-    elevation: 10,
-    shadowColor: '#52006A',
-    backgroundColor: 'white',
-    padding: 2,
-    paddingBottom: 6,
-    margin: 3,
-    width: width-100,
-    alignSelf: 'center',
-    marginTop: 25,
-    borderRadius: 25,
-  },
+const styles = ScaledSheet.create({
+
   homescreen__image: {
-    width: 240,
-    height: 200,
+    width: '300@ms',
+    height: '200@ms',
     display: 'flex',
-    alignSelf: 'center'
-  },
-  homescreen__text: {
-    fontWeight: '800',
-    fontSize: fontsize,
-    display: 'flex',
-    textAlign: 'center',
-    marginBottom: 10
+    alignSelf: 'center',
+    borderRadius:"15@ms"
   },
   homescreen__bottombtn: {
     display: 'flex',
     flexDirection: 'row',
     alignSelf: 'center',
-    marginTop: 30,
-    width: width,
+    marginTop: '30@ms',
+    width: '360@ms',
     justifyContent: 'space-evenly',
-    marginBottom:15
+    marginBottom: '15@ms',
+    marginTop: '75@ms'
   },
-  // bottom_btns: {
-  //   elevation: 10,
-  //   shadowColor: "#52006A",
-  //   backgroundColor: '#5379f6',
-  //   padding: 20,
-  //   // paddingBottom: 25,
-  //   margin: 3,
-  //   borderRadius: 25,
-  //   width: 'auto'
-  // }
-})
+  homescreen__header: {
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'scroll',
+    backgroundColor: 'white',
+    padding: '10@ms',
+    height: '100%',
+    // justifyContent:'center'
+    paddingTop: '70@ms'
+  },
+  header__text: {
+    textAlign: 'center',
+    fontSize: '35@ms',
+    fontFamily: 'normal',
+    marginBottom: '10@ms',
+  },
+  header__descText: {
+    textAlign: 'center',
+    fontSize: '15@ms',
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginBottom: '50@ms'
+  },
+  display__text: {
+    textAlign: 'center',
+    fontSize: '20@ms',
+  },
+  image__view:{
+    elevation:'15@ms',
+    margin:'15@ms',
+    marginBottom:"25@ms",
+  }
 
-{/* <TouchableOpacity activeOpacity={0.5} style={styles.bottom_btns}>
-          <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontWeight: "700", fontSize: 18, }}>About Us</Text>
-        </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.5} style={styles.bottom_btns}>
-          <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontWeight: "700", fontSize: 18 }}>Contact Admin</Text>
-        </TouchableOpacity> */}
+})

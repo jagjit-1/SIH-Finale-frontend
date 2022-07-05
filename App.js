@@ -13,6 +13,7 @@ import { AntDesign } from '@expo/vector-icons';
 import RegisterScreen from './Components/Screens/RegisterScreen';
 import { LinearGradient } from 'expo-linear-gradient';
 import PhotoCaptureScreen from './Components/Screens/PhotoCaptureScreen';
+import MapScreen from './Components/Screens/MapScreen';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -27,6 +28,7 @@ export default function App() {
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="register" component={RegisterScreen} />
           <Stack.Screen name="photocapture" component={PhotoCaptureScreen} />
+          <Stack.Screen name='mapscreen' component={MapScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
     </>
