@@ -3,10 +3,9 @@ import React from 'react'
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import * as Location from 'expo-location';
 import MapView, { Circle, Marker, MarkerAnimated } from 'react-native-maps';
-import { moderateScale, ScaledSheet, } from 'react-native-size-matters';
-import { Entypo } from '@expo/vector-icons';
+import {  ScaledSheet, } from 'react-native-size-matters';
 import { Button } from '@rneui/base';
-
+import { FontAwesome } from '@expo/vector-icons';
 const MapScreen = ({ navigation }) => {
     const [location, setLocation] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
@@ -30,7 +29,7 @@ const MapScreen = ({ navigation }) => {
             // console.log(Mapref.current.animateCamera);
 
             const loc = await Mapref.current.animateCamera({ center: { "latitude": location.coords.latitude, "longitude": location.coords.longitude } });
-    
+
             const reigon = {
                 latitude: location.coords.latitude,
                 longitude: location.coords.longitude,
@@ -39,7 +38,7 @@ const MapScreen = ({ navigation }) => {
             }
             const animate = await Mapref.current.animateToRegion(reigon, 2000);
             // console.log(location)
-    
+
         }
         getlocation();
 
@@ -49,6 +48,9 @@ const MapScreen = ({ navigation }) => {
     return (
         <View style={{ height: '100%', backgroundColor: 'white' }} >
             <StatusBar />
+            <View style = {styles.back__icon}>
+                <FontAwesome name="arrow-circle-left" onPress={()=>navigation.goBack()} size={40} color="#5379f6" />
+            </View>
             <View style={styles.MapScreen}>
                 <MapView ref={Mapref} style={styles.map} showsMyLocationButton={true} followsUserLocation={true} zoomEnabled={true} zoomControlEnabled={true} showsCompass={true} loadingEnabled={true} >
                     {location && <Circle
@@ -69,8 +71,8 @@ const MapScreen = ({ navigation }) => {
                     </MarkerAnimated>}
                 </MapView>
             </View>
-            <View style = {styles.btn}>
-                <Button title = "Continue" type='outline' disabled={(location ? false : true)} onPress={()=>console.log("mapscreen continue pressed")}/>
+            <View style={styles.btn}>
+                <Button title="Continue" type='outline' disabled={(location ? false : true)} onPress={() => console.log("mapscreen continue pressed")} />
             </View>
 
         </View>
@@ -87,9 +89,15 @@ const styles = ScaledSheet.create({
     },
     MapScreen: {
         height: '90%',
-        padding: '10@ms',
+        zIndex:-1,
+        marginTop:'-60@ms'  
     },
-    btn:{
-        padding:'15@ms'
+    btn: {
+        padding: '15@ms'
     },
+    back__icon:{
+        zIndex:1, 
+        marginTop:25, 
+        marginLeft:15
+    }
 })

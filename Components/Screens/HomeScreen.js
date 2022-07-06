@@ -12,12 +12,7 @@ const HomeScreen = ({ navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: 'Attendance Tracker',
-      headerStyle: { backgroundColor: 'white' },
-
-      headerTitleStyle: { color: "white" },
-      headerTintColor: "white",
-      headerTitleAlign: 'center',
+      title: 'Home',
       headerShadowVisible: false
     })
   }, [navigation])
