@@ -23,7 +23,7 @@ export default function App() {
     <>
       <StatusBar />
       <NavigationContainer>
-        <Drawer.Navigator initialRouteName='Home' screenOptions={{ drawerType: 'back', drawerLabelStyle:{marginLeft:-17}, drawerStyle: { width: 320, borderWidth: 3, borderColor: '#3761f0'} }} drawerContent={props => <CustomDrawer {...props} />}>
+        <Drawer.Navigator initialRouteName='Home' screenOptions={{ drawerType: 'back', drawerLabelStyle: { marginLeft: -17 }, drawerStyle: { width: 320, borderWidth: 3, borderColor: '#3761f0' } }} drawerContent={props => <CustomDrawer {...props} />}>
           <Drawer.Screen name="Home" component={HomeScreen} options={{ drawerIcon: () => (<Octicons name="dot-fill" size={20} color="#5379f6" />) }} />
           <Drawer.Screen name="About" component={AboutScreen} options={{ drawerIcon: () => (<Octicons name="dot-fill" size={20} color="#5379f6" />) }} />
           <Drawer.Screen name="Profile" component={ProfileScreen} options={{ drawerIcon: () => (<Octicons name="dot-fill" size={20} color="#5379f6" />) }} />
