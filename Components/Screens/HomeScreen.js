@@ -1,10 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, StatusBar, Dimensions, ScrollView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
-import { FontAwesome } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { useHeaderHeight } from '@react-navigation/elements';
 import { Button } from '@rneui/base';
 import { moderateScale, ScaledSheet } from 'react-native-size-matters';
 
@@ -13,7 +8,9 @@ const HomeScreen = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: 'Home',
-      headerShadowVisible: false
+      headerShadowVisible: false,  
+      headerShown:false,
+      swipeEnabled:false
     })
   }, [navigation])
 
@@ -43,7 +40,7 @@ const HomeScreen = ({ navigation }) => {
           </Text>
         </View>
         <View style={styles.homescreen__bottombtn}>
-          <Button color="#5379f6" title="Login" type="outline" onPress={() => console.log("About us pressed")} raised containerStyle={{ width: 140 }} />
+          <Button color="#5379f6" title="Login" type="outline" onPress={() => navigation.navigate("About")} raised containerStyle={{ width: 140 }} />
           <Button color="#5379f6" title="Mark Attendance" onPress={() => navigation.navigate("mapscreen")} raised containerStyle={{ width: 160 }} />
         </View>
       </View>
