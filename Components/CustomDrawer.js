@@ -10,7 +10,7 @@ const CustomDrawer = (props) => {
     return (
         <View style={{ flex: 1, }} >
             <ImageBackground source={require("./images/customdrawer.jpeg")} style={{ height: 250, width:'100%' }} >
-                <View style={{ height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: 15, borderBottomWidth: 2, borderBottomColor: '#3761f0' }}>
+                <View style={{ height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: 15, borderBottomWidth: 2, borderBottomColor: '#673AB7' }}>
                     <FontAwesome name="arrow-circle-left" size={35} style={{ alignSelf: 'flex-end', margin: 15 }} color="white" onPress={() => props.navigation.closeDrawer()} />
                     <View style={{ display: "flex", flexDirection: 'column', justifyContent: 'space-around' }}>
                         <Avatar source={{ uri: "https://wallpaperaccess.com/full/749931.jpg" }} size={80} rounded containerStyle={{ margin: 10, marginLeft: 0 }} />

@@ -20,7 +20,7 @@ const AttendanceScreen = ({ navigation }) => {
       ),
       headerTintColor: 'white',
       headerStyle: {
-        backgroundColor: 'rgb(120, 117, 248)'
+        backgroundColor: '#673AB7'
       }
     })
   }, [navigation])

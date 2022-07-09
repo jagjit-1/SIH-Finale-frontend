@@ -76,8 +76,7 @@ const styles = ScaledSheet.create({
     backgroundColor: 'white',
     padding: '10@ms',
     height: '100%',
-    // justifyContent:'center'
-    paddingTop: '70@ms'
+    justifyContent:'center'
   },
   header__text: {
     textAlign: 'center',

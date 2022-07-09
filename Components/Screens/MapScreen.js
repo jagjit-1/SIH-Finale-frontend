@@ -93,7 +93,7 @@ const styles = ScaledSheet.create({
         marginTop:'-60@ms'  
     },
     btn: {
-        padding: '15@ms'
+        padding: '10@ms'
     },
     back__icon:{
         zIndex:1, 
