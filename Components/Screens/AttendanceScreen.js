@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View, ImageBackground } from 'react-native'
+import { StyleSheet, Text, View, ImageBackground, Dimensions } from 'react-native'
 import React, { useLayoutEffect } from 'react'
-import { ScaledSheet, moderateScale} from 'react-native-size-matters';
+import { ScaledSheet, moderateScale } from 'react-native-size-matters';
 import { Avatar, Image } from '@rneui/base';
 import { Calendar } from 'react-native-calendars';
 import { Octicons } from '@expo/vector-icons';
 
+const { width, height } = Dimensions.get("window");
+
 const AttendanceScreen = ({ navigation }) => {
-
-
   useLayoutEffect(() => {
     navigation.setOptions({
       title: 'Preview Attendance',
@@ -27,44 +27,42 @@ const AttendanceScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.Calendar__view}>
-        <Text style={styles.Calendar__text}>Calendar</Text>
-        <Calendar
-          style={styles.Calendar}
-          theme={{
+      <Text style={styles.Calendar__text}>Calendar</Text>
+      <Calendar
+        style={styles.Calendar}
+        theme={{
 
-            backgroundColor: 'rgb(232, 234, 237)',
-            calendarBackground: 'rgb(232, 234, 237)',
-            textSectionTitleColor: '#b6c1cd',
-            textSectionTitleDisabledColor: '#d9e1e8',
-            selectedDayBackgroundColor: '#00adf5',
-            selectedDayTextColor: '#ffffff',
-            todayTextColor: '#00adf5',
-            dayTextColor: '#2d4150',
-            textDisabledColor: '#d9e1e8',
-            dotColor: '#00adf5',
-            selectedDotColor: '#ffffff',
-            arrowColor: 'black',
-            disabledArrowColor: '#d9e1e8',
-            monthTextColor: 'blue',
-            indicatorColor: 'blue',
-            textDayFontWeight: '500',
-            textMonthFontWeight: 'bold',
-            textDayHeaderFontWeight: '500',
-            textDayFontSize: 16,
-            textMonthFontSize: 16,
-            textDayHeaderFontSize: 16
-          }}
+          backgroundColor: 'rgb(232, 234, 237)',
+          calendarBackground: 'rgb(232, 234, 237)',
+          textSectionTitleColor: '#b6c1cd',
+          textSectionTitleDisabledColor: '#d9e1e8',
+          selectedDayBackgroundColor: '#00adf5',
+          selectedDayTextColor: '#ffffff',
+          todayTextColor: '#00adf5',
+          dayTextColor: '#2d4150',
+          textDisabledColor: '#d9e1e8',
+          dotColor: '#00adf5',
+          selectedDotColor: '#ffffff',
+          arrowColor: 'black',
+          disabledArrowColor: '#d9e1e8',
+          monthTextColor: 'blue',
+          indicatorColor: 'blue',
+          textDayFontWeight: '500',
+          textMonthFontWeight: 'bold',
+          textDayHeaderFontWeight: '500',
+          textDayFontSize: 16,
+          textMonthFontSize: 16,
+          textDayHeaderFontSize: 16
+        }}
 
-          enableSwipeMonths={true}
-          markedDates={{
-            '2022-07-06': { selected: true, marked: true, selectedColor: 'rgb(83, 189, 235)' },
-            '2022-07-01': { selected: true, marked: true, selectedColor: '#FFC107' },
-            '2022-07-07': { selected: true, marked: true, selectedColor: '#FF5722' },
-          }}
+        enableSwipeMonths={true}
+        markedDates={{
+          '2022-07-06': { selected: true, marked: true, selectedColor: 'rgb(83, 189, 235)' },
+          '2022-07-01': { selected: true, marked: true, selectedColor: '#FFC107' },
+          '2022-07-07': { selected: true, marked: true, selectedColor: '#FF5722' },
+        }}
 
-        />
-      </View>
+      />
       <View style={styles.info}>
         <View style={styles.info}>
           <Octicons name="dot-fill" size={24} color="rgb(83, 189, 235)" style={{ marginRight: 5 }} />
@@ -90,7 +88,7 @@ export default AttendanceScreen
 const styles = ScaledSheet.create({
   container: {
     backgroundColor: 'white',
-    height: '100%',
+    height: 'auto',
     display: 'flex',
     flexDirection: 'column',
     flex: 1
@@ -109,16 +107,16 @@ const styles = ScaledSheet.create({
     justifyContent: 'space-evenly',
   },
   Calendar: {
-    height: "380@ms",
+    paddingBottom:'5@ms',
     margin: "20@ms",
     elevation: 25,
     borderRadius: '20@ms',
   },
-  Calendar__text:{
-    display:'flex',
-    flexDirection:'row',
-    fontSize:"25@ms",
-    marginLeft:"25@ms",
-    marginTop:"10@ms"
-  }
+  Calendar__text: {
+    display: 'flex',
+    flexDirection: 'row',
+    fontSize: "25@ms",
+    marginLeft: "25@ms",
+    marginTop: "10@ms"
+  },
 })

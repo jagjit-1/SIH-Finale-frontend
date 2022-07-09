@@ -97,7 +97,7 @@ const styles = ScaledSheet.create({
     },
     back__icon:{
         zIndex:1, 
-        marginTop:25, 
-        marginLeft:15
+        marginTop:'15@ms', 
+        marginLeft:'15@ms'
     }
 })
