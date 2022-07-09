@@ -1,64 +1,50 @@
 import { StyleSheet, View, Image, Text, SafeAreaView, Button, Alert, Pressable } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { Camera, CameraType } from 'expo-camera';
 import FaceDetection from '../FaceDetection';
+import IsVerified from './IsVerified';
+import CustomButton from '../Assets/CustomButton';
 
 
-const PhotoCaptureScreen = () => {
-    const [hasPermission, setHasPermission] = useState(null);
-    const [type, setType] = useState(CameraType.front);
-    const [photo, setPhoto] = useState(null);
+const PhotoCaptureScreen = ({ route, navigation }) => {
+    let photo = route.params
     const [toDisplay, setToDisplay] = useState(false);
-    let cameraRef = useRef();
-    useEffect(() => {
-        const getPermission = async () => {
-            const { status } = await Camera.requestCameraPermissionsAsync();
-            setHasPermission(status)
-        }
-        getPermission();
-    }, [])
-    if (hasPermission !== 'granted') {
-        return <Text>nope</Text>
-    }
-    const takePicture = async () => {
-        const pictureRef = await cameraRef.current.takePictureAsync({ quality: 0.5 });
-        setPhoto(pictureRef)
-        setToDisplay(true)
-    }
-    const reTakePicture = () => {
-        setToDisplay(false);
-        setPhoto(null);
+    const [cameraType, setCameraType] = useState("front");
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title: ''
+        })
+    }, [navigation])
+
+    const openCamera = () => {
+        navigation.navigate("camera")
     }
 
-    if (toDisplay) {
-        return (
-            <SafeAreaView style={styles.cameraContainer}>
-                <View style={{ flex: 3 }}>
-                    <Image source={{ uri: photo.uri }} style={{ flex: 1, resizeMode: 'cover' }} />
-                </View>
-                <View style={{ flex: 1 }}>
-                    <FaceDetection imageUri={photo.uri} />
-                    <Button title='Retake' onPress={reTakePicture} />
-                </View>
-            </SafeAreaView>
-
-        )
-    }
 
     return (
-        <SafeAreaView style={styles.cameraContainer}>
-            <Camera
-                ref={cameraRef}
-                onCameraReady={() => console.log("F")}
-                style={styles.camera} type={type}>
-                <View style={styles.camerabuttoncontainer}>
-                    <Pressable
-                        style={styles.camerabutton}
-                        onPress={takePicture}
-                    />
+        <SafeAreaView style={styles.superContainer}>
+            <View style={styles.cameraContainer}>
+                <View style={styles.photoContainer}>
+                    <View style={styles.photoIconContainer}>
+                        {!toDisplay &&
+                            <Pressable
+                                style={styles.photoIconFlexContainer}
+                                android_ripple={{ color: 'white', borderless: true }}
+                                onPress={openCamera}
+                            >
+                                <Image source={{ uri: photo.uri }} style={styles.photo} />
+                            </Pressable>
+                        }
+                    </View>
                 </View>
-            </Camera>
-        </SafeAreaView >
+                <View style={styles.cameraTypeContainer}>
+                    <Text style={styles.cameraType}>{cameraType} camera</Text>
+                </View>
+            </View>
+            <View style={styles.contentContainer}>
+                <IsVerified navigate={navigation} photo={photo} />
+            </View>
+        </SafeAreaView>
     )
 }
 
@@ -67,21 +53,49 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     cameraContainer: {
-        flex: 1
+        flex: 6,
     },
-    camerabutton: {
-        width: 80,
-        height: 80,
-        bottom: 80,
-        position: 'absolute',
-        borderRadius: 50,
-        backgroundColor: 'white'
+    contentContainer: {
+        flex: 5
     },
-    camerabuttoncontainer: {
-        flex: 1,
-        width: '100%',
+    photoContainer: {
+        flex: 9,
         alignItems: 'center',
-        backgroundColor: 'transparent'
+        justifyContent: 'center',
+    },
+    photoIconContainer: {
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgb(163, 88, 232)',
+        borderRadius: 330,
+        width: 330,
+        height: 330,
+    },
+    photoIconFlexContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 20
+    },
+    photoIcon: {
+        fontSize: 110,
+        color: 'white',
+        alignSelf: 'center',
+    },
+    photo: {
+        flex: 1,
+        resizeMode: 'cover',
+        borderRadius: 250,
+        width: 330,
+        height: 330,
+    },
+    cameraTypeContainer: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    cameraType: {
+        fontSize: 20,
+        textTransform: 'capitalize'
     }
 })
 

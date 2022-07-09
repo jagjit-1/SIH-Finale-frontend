@@ -1,5 +1,6 @@
 import { View, Text, Button, FlatList, StyleSheet } from 'react-native'
 import React from 'react'
+import CustomButton from '../Assets/CustomButton'
 
 const NotIdentified = (props) => {
     const instructions = [
@@ -35,8 +36,8 @@ const NotIdentified = (props) => {
 
             </View>
             <View style={styles.buttonsContainer}>
-                <Button onPress={reTake} title='Retake Photo' />
-                <Button title='Contact Admin' />
+                <CustomButton style={{ width: 170 }} onPress={reTake} title='Retake Photo' />
+                <CustomButton style={{ width: 170 }} title='Contact Admin' />
             </View>
 
 
@@ -55,19 +56,22 @@ const styles = StyleSheet.create({
         flex: 4
     },
     instructionsText: {
-        fontSize: 15,
+        fontSize: 18,
         paddingTop: 10
     },
     instructionsHeadingText: {
-        fontSize: 15
+        fontSize: 20,
+        textAlign: 'center'
     },
     buttonsContainer: {
-        flex: 3,
-        justifyContent: 'space-evenly'
+        flex: 2,
+        justifyContent: 'space-evenly',
+        flexDirection: 'row'
     },
     notIdentifiedButton: {
         height: 40,
         width: 250,
+        borderRadius: 30,
         backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'center',
