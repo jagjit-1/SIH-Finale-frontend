@@ -9,9 +9,9 @@ const IsVerified = (props) => {
     const [identified, setIdentified] = useState(false)
     useEffect(() => {
         if (props.photo) {
-            setLoading(true)
+            setLoading(false)
             setToVerify(true)
-            setIdentified(true)
+            setIdentified(false)
             // api calls to verify the image
         }
     }, [props.photo])
@@ -19,7 +19,7 @@ const IsVerified = (props) => {
     if (toVerify && loading) {
         return (
             <View style={styles.loaderContainer}>
-                <ActivityIndicator size='large' color='#0000ff' />
+                <ActivityIndicator size='large' color='#5379f6' />
                 <View>
                     <Text style={styles.loaderText}>
                         Verifying Details

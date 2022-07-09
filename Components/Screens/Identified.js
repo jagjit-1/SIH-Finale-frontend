@@ -1,5 +1,6 @@
 import { View, Text, Button, StyleSheet } from 'react-native'
 import React from 'react'
+import CustomButton from '../Assets/CustomButton'
 
 const Identified = () => {
     return (
@@ -21,7 +22,7 @@ const Identified = () => {
                 </View>
             </View>
             <View style={styles.markAttendanceContainer}>
-                <Button title='Mark Your Attendance' />
+                <CustomButton style={{ width: 250 }} title='Mark Your Attendance' />
             </View>
         </View>
     )
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
     identifiedButton: {
         height: 40,
         width: 250,
+        borderRadius: 30,
         backgroundColor: 'green',
         alignItems: 'center',
         justifyContent: 'center'
