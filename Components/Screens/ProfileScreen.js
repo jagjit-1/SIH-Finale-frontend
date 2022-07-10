@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   photoContainer: {
-    flex: 2,
+    flex: 3,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgb(83, 100, 246)',
-    borderRadius: 330,
-    width: 330,
-    height: 330,
+    borderRadius: 300,
+    width: 300,
+    height: 300,
   },
   photoIconFlexContainer: {
     alignItems: 'center',
@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
     borderRadius: 20
   },
   detailsContainer: {
-    flex: 1,
+    flex: 2,
     alignItems: 'center',
     justifyContent: 'space-evenly'
   },
   buttonContainer: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center'
   },
   detailsText: {
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   userIcon: {
     color: 'white',
-    fontSize: 175,
+    fontSize: 150,
     paddingLeft: 20
   }
 })
