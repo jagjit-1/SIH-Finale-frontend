@@ -11,7 +11,7 @@ const IsVerified = (props) => {
         if (props.photo) {
             setLoading(false)
             setToVerify(true)
-            setIdentified(false)
+            setIdentified(true)
             // api calls to verify the image
         }
     }, [props.photo])
@@ -30,12 +30,12 @@ const IsVerified = (props) => {
     }
     if (toVerify && !loading && identified) {
         return (
-            <Identified />
+            <Identified navigation={props.navigate} />
         )
     }
     if (toVerify && !loading && !identified) {
         return (
-            <NotIdentified navigate={props.navigate} />
+            <NotIdentified navigation={props.navigate} />
         )
     }
     return (

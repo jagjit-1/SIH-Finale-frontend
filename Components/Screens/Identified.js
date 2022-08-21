@@ -2,7 +2,7 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 import React from 'react'
 import CustomButton from '../Assets/CustomButton'
 
-const Identified = () => {
+const Identified = ({ navigation }) => {
     return (
         <View style={styles.superContainer}>
             <View style={styles.identifiedContainer}>
@@ -22,7 +22,7 @@ const Identified = () => {
                 </View>
             </View>
             <View style={styles.markAttendanceContainer}>
-                <CustomButton style={{ width: 250 }} title='Mark Your Attendance' />
+                <CustomButton onPress={() => navigation.navigate("AttendanceMarked")} style={{ width: 250 }} title='Mark Your Attendance' />
             </View>
         </View>
     )

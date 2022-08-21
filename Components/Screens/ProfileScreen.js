@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'rgb(83, 100, 246)',
     borderRadius: 300,
-    width: 300,
-    height: 300,
+    width: 250,
+    height: 250,
   },
   photoIconFlexContainer: {
     alignItems: 'center',

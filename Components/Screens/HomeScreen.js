@@ -44,8 +44,8 @@ const HomeScreen = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.homescreen__bottombtn}>
-        <Button color="#5379f6" title="Login" type="outline" onPress={() => navigation.navigate("About")} raised containerStyle={{ width: 140 }} />
-        <Button color="#673AB7" title="Mark Attendance" onPress={() => navigation.navigate("mapscreen")} raised containerStyle={{ width: 160 }} />
+        <Button color="#5379f6" title="Login" type="outline" onPress={() => navigation.navigate("Login")} raised containerStyle={{ width: 140 }} />
+        <Button color="#673AB7" title="Mark Attendance" onPress={() => navigation.navigate("Direct")} raised containerStyle={{ width: 160 }} />
       </View>
 
     </View>

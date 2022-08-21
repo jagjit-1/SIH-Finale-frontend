@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         elevation: 4,
         width: 230,
-        backgroundColor: 'rgb(83, 121, 246)',
+        backgroundColor: '#6200EE',
         shadowColor: 'black',
         shadowOpacity: 0.175,
         borderRadius: 8,

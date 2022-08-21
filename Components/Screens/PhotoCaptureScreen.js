@@ -12,8 +12,10 @@ const PhotoCaptureScreen = ({ route, navigation }) => {
     const [cameraType, setCameraType] = useState("front");
     useLayoutEffect(() => {
         navigation.setOptions({
-            title: ''
+            title: '',
+            headerShown: false
         })
+
     }, [navigation])
 
     const openCamera = () => {
@@ -25,17 +27,15 @@ const PhotoCaptureScreen = ({ route, navigation }) => {
         <SafeAreaView style={styles.superContainer}>
             <View style={styles.cameraContainer}>
                 <View style={styles.photoContainer}>
-                    <View style={styles.photoIconContainer}>
-                        {!toDisplay &&
-                            <Pressable
-                                style={styles.photoIconFlexContainer}
-                                android_ripple={{ color: 'white', borderless: true }}
-                                onPress={openCamera}
-                            >
-                                <Image source={{ uri: photo.uri }} style={styles.photo} />
-                            </Pressable>
-                        }
-                    </View>
+
+                    <Pressable
+                        style={styles.photoIconContainer}
+                        android_ripple={{ color: 'white', borderless: true }}
+                        onPress={openCamera}
+                    >
+                        {photo && <Image source={{ uri: photo.uri }} style={styles.photo} />}
+                    </Pressable>
+
                 </View>
                 <View style={styles.cameraTypeContainer}>
                     <Text style={styles.cameraType}>{cameraType} camera</Text>
@@ -67,15 +67,17 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgb(163, 88, 232)',
+        backgroundColor: '#6200EE',
         borderRadius: 330,
         width: 330,
         height: 330,
     },
     photoIconFlexContainer: {
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 20
+
     },
     photoIcon: {
         fontSize: 110,
