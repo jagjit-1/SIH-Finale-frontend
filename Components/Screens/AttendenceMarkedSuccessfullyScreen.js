@@ -14,7 +14,7 @@ const LogoScreen = ({ navigation }) => {
         source={require("../../assets/Logo.jpeg")}
       />
       <Text style={styles.textStyle}>Attendence marked successfully</Text>
-      <TouchableOpacity style={styles.buttonStyle}>
+      <TouchableOpacity onPress={() => navigation.navigate("Home")} style={styles.buttonStyle}>
         <Text style={styles.buttonTextStyle}>EXIT</Text>
       </TouchableOpacity>
     </View>

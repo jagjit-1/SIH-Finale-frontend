@@ -34,7 +34,7 @@ const Root = () => {
                         </>
 
                     ) : (
-                        <Stack.Screen name="LoggedIn" component={LoggedIn} />
+                        <Stack.Screen screenOptions={{ headerShown: false }} name="LoggedIn" component={LoggedIn} />
                     )
                     }
                 </Stack.Navigator>

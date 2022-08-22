@@ -20,7 +20,7 @@ const AttendanceScreen = ({ navigation }) => {
       ),
       headerTintColor: 'white',
       headerStyle: {
-        backgroundColor: '#673AB7'
+        backgroundColor: '#3700B3'
       }
     })
   }, [navigation])
@@ -107,7 +107,7 @@ const styles = ScaledSheet.create({
     justifyContent: 'space-evenly',
   },
   Calendar: {
-    paddingBottom:'5@ms',
+    paddingBottom: '5@ms',
     margin: "20@ms",
     elevation: 25,
     borderRadius: '20@ms',

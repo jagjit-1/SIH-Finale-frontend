@@ -18,7 +18,7 @@ const ContactAdmin = ({ navigation }) => {
             ),
             headerTintColor: 'white',
             headerStyle: {
-                backgroundColor: '#673AB7'
+                backgroundColor: '#3700B3'
             }
         })
     }, [])
@@ -26,7 +26,7 @@ const ContactAdmin = ({ navigation }) => {
     return (
         <KeyboardAvoidingView style={{ backgroundColor: 'white', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
             <View style={{ flex: 0.2 }}>
-                <Text style={{ color: '#673AB7', fontSize: moderateScale(45, 0.5), textAlign: 'center', fontWeight: '700' }}>Write your issues here <MaterialIcons name="contact-support" size={42} color="#673AB7" /></Text>
+                <Text style={{ color: '#6200EE', fontSize: moderateScale(45, 0.5), textAlign: 'center', fontWeight: '700' }}>Write your issues here <MaterialIcons name="contact-support" size={42} color="#673AB7" /></Text>
             </View>
             <View style={{ flex: 0.7, padding: 15 }}>
                 <ScrollView style={{ height: '100%', display: 'flex', flexDirection: 'column' }} showsVerticalScrollIndicator={false}>
@@ -64,7 +64,7 @@ const ContactAdmin = ({ navigation }) => {
                         />
                     </View>
                     <View>
-                        <Button raised={true} color="#673AB7" type="solid" title="Submit" onPress={() => console.log("Upload Submit button clicked")} />
+                        <Button raised={true} color="#6200EE" type="solid" title="Submit" onPress={() => console.log("Upload Submit button clicked")} />
                     </View>
                 </ScrollView>
             </View>

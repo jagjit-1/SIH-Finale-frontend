@@ -2,6 +2,8 @@ import { View, Text, Image, ActivityIndicator, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import NotIdentified from './NotIdentified'
 import Identified from './Identified'
+import CustomButton from '../Assets/CustomButton';
+import { FontAwesome } from '@expo/vector-icons';
 
 const IsVerified = (props) => {
     const [loading, setLoading] = useState(false)
@@ -30,17 +32,32 @@ const IsVerified = (props) => {
     }
     if (toVerify && !loading && identified) {
         return (
-            <Identified navigation={props.navigate} />
+            <Identified navigation={props.navigation} />
         )
     }
     if (toVerify && !loading && !identified) {
         return (
-            <NotIdentified navigation={props.navigate} />
+            <NotIdentified navigation={props.navigation} />
         )
     }
     return (
-        <View>
-            <Text>click a photo first</Text>
+        <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
+            <View style={{ flex: 1, justifyContent: 'space-around', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'space-around', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 20, paddingRight: 10 }} >Location verified</Text>
+                    <FontAwesome style={{ fontSize: 20 }} name='check' />
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 20 }}>Please click a photo for Identification</Text>
+                </View>
+
+
+            </View>
+
+            <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
+                <CustomButton onPress={() => props.navigation.navigate("camera")} title="Click a Photo" />
+            </View>
+
         </View>
     )
 }

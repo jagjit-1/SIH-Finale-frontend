@@ -8,7 +8,7 @@ const LandingScreen = ({ navigation }) => {
     const [time, setTime] = useState();
     const [date, setDate] = useState(new Date().toDateString())
     const [timeRemaining, SetTimeRemaining] = useState()
-    const [checkedIn, setCheckedIn] = useState(true)
+    const [checkedIn, setCheckedIn] = useState(false)
     useEffect(() => {
         SetTimeRemaining(new Date().setHours(5, 0, 0))
         setInterval(() => {
@@ -70,12 +70,12 @@ const LandingScreen = ({ navigation }) => {
 
             {!checkedIn &&
                 <View style={styles.buttonsContainer}>
-                    <CustomButton title='Check-in' />
+                    <CustomButton onPress={() => setCheckedIn(true)} title='Check-in' />
                 </View>
             }
             {checkedIn &&
                 <View style={styles.buttonsContainer}>
-                    <CustomButton title='checkout' textStyle={{ fontSize: 22, fontWeight: '500' }} style={{ backgroundColor: 'red', height: 50 }} />
+                    <CustomButton title='checkout' onPress={() => setCheckedIn(false)} textStyle={{ fontSize: 22, fontWeight: '500' }} style={{ backgroundColor: 'red', height: 50 }} />
                 </View>
             }
         </View>
