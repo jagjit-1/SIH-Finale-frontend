@@ -1,9 +1,20 @@
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import CustomButton from '../Assets/CustomButton'
 import UserIcon from '../Assets/UserIcon'
 
 const ProfileScreen = ({ navigation }) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: '',
+      headerShadowVisible: false,
+      swipeEnabled: true,
+      headerTintColor: 'white',
+      headerStyle: {
+        backgroundColor: '#3700B3'
+      }
+    })
+  }, [])
   return (
     <View style={styles.superContainer}>
 
@@ -45,7 +56,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgb(83, 100, 246)',
+    backgroundColor: '#6200EE',
     borderRadius: 300,
     width: 250,
     height: 250,
@@ -65,15 +76,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   detailsText: {
-    fontSize: 28,
-    color: 'rgb(83, 124, 246)',
+    fontSize: 25,
     fontWeight: '600',
     textTransform: 'capitalize'
 
   },
   userIcon: {
     color: 'white',
-    fontSize: 150,
+    fontSize: 60,
     paddingLeft: 20
   }
 })
