@@ -2,7 +2,7 @@ import { View, Text, Button, FlatList, StyleSheet } from 'react-native'
 import React from 'react'
 import CustomButton from '../Assets/CustomButton'
 
-const NotIdentified = (props) => {
+const NotIdentified = ({ props, navigation }) => {
     const instructions = [
         'Lighting is proper',
         'Face is in the Image',
@@ -16,7 +16,7 @@ const NotIdentified = (props) => {
 
     }
     const reTake = () => {
-        props.navigate.goBack()
+        navigation.goback()
     }
     return (
         <View style={styles.superContainer} >

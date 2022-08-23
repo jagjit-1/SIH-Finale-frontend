@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 const UserIcon = (props) => {
     return (
-        <FontAwesome onPress={props.onPress} style={[styles.icon, props.style]} name='user' />
+        <FontAwesome onPress={props.onPress} style={[styles.icon, props.style]} name='camera' />
     )
 }
 

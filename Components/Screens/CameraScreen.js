@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, Pressable, StyleSheet } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { Camera, CameraType } from 'expo-camera';
 import FaceDetection from '../FaceDetection';
 
@@ -15,6 +15,11 @@ const CameraScreen = ({ navigation }) => {
         }
         getPermission();
     }, [])
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerShown: false
+        })
+    }, [navigation])
     const takePhoto = async () => {
         const res = await cameraRef.current.takePictureAsync({ quality: 0.5 })
         navigation.navigate('photocapture', { uri: res.uri })

@@ -1,15 +1,16 @@
 import { StyleSheet, Text, View, KeyboardAvoidingView, ScrollView, TouchableNativeFeedback, Dimensions } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useContext, useLayoutEffect } from 'react'
 import { Image, Input } from "@rneui/themed";
 import { Button } from "@rneui/base";
 import { useHeaderHeight } from '@react-navigation/elements';
+import { AuthContext } from '../../AuthProvider';
 
-const RegisterScreen = ({ navigation }) => {
-
+const LoginScreen = ({ navigation }) => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "Login",
-      headerStyle: { backgroundColor: '#673AB7' },
+      headerStyle: { backgroundColor: '#3700B3' },
       headerTitleStyle: { color: "white" },
       headerTintColor: "white",
       headerTitleAlign: 'center',
@@ -23,7 +24,7 @@ const RegisterScreen = ({ navigation }) => {
       <View style={{ display: 'flex', flexDirection: "column", flex: 0.5, justifyContent: 'space-around' }} showsVerticalScrollIndicator={false}>
 
         <View >
-          <Text style={{ fontSize: 40, color:'#673AB7' }}>Welcome back!</Text>
+          <Text style={{ fontSize: 40, color: '#3700B3' }}>Welcome back!</Text>
         </View>
 
         <View>
@@ -47,7 +48,7 @@ const RegisterScreen = ({ navigation }) => {
           </View>
 
           <View style={{ marginBottom: 15 }}>
-            <Button raised color="#5379f6" type="outline" title="Continue" TouchableComponent={TouchableNativeFeedback} onPress={() => console.log("Upload Submit button clicked")} />
+            <Button raised color="#5379f6" type="outline" title="Continue" TouchableComponent={TouchableNativeFeedback} onPress={() => setIsLoggedIn(!isLoggedIn)} />
           </View>
         </View>
 
@@ -59,6 +60,6 @@ const RegisterScreen = ({ navigation }) => {
   )
 }
 
-export default RegisterScreen
+export default LoginScreen
 
 const styles = StyleSheet.create({})

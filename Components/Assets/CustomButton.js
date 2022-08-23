@@ -1,18 +1,18 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const CustomButton = (props) => {
     return (
-        <Pressable
-            android_ripple
-            onPress={props.onPress}
-            style={() => [
-                styles.buttonContainer,
-                props.style
-            ]}
-        >
-            <Text style={[styles.buttonContent, props.textStyle]}>{props.title}</Text>
-        </Pressable>
+        <View style={[styles.buttonContainer, props.style]}  >
+            <TouchableOpacity
+                onPress={props.onPress}
+
+            >
+                <Text style={[styles.buttonContent, props.textStyle]}>{props.title}</Text>
+            </TouchableOpacity>
+        </View>
+
     )
 }
 
@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         elevation: 4,
         width: 230,
-        backgroundColor: 'rgb(83, 121, 246)',
+        backgroundColor: '#6200EE',
         shadowColor: 'black',
         shadowOpacity: 0.175,
-        borderRadius: 8,
+        borderRadius: 2,
         shadowOffset: { width: 1, height: 1 },
     },
     buttonContent: {
